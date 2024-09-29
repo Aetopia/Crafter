@@ -20,20 +20,23 @@ HRESULT TaskDialogCallbackProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
         break;
 
     case TDN_BUTTON_CLICKED:
-        if (wParam == IDCANCEL)
+        switch (wParam)
+        {
+        case IDCANCEL:
             ExitProcess(0);
-        else if (wParam == IDOK)
             break;
 
-        if (GetOpenFileNameW(&((OPENFILENAMEW){.lStructSize = sizeof(OPENFILENAMEW),
-                                               .hwndOwner = hWnd,
-                                               .lpstrFilter = L"Application extensions (*.dll)\0*.dll*\0\0",
-                                               .lpstrFile = szLibFileName,
-                                               .Flags = OFN_FILEMUSTEXIST,
-                                               .FlagsEx = OFN_EX_NOPLACESBAR,
-                                               .nMaxFile = MAX_PATH})))
-            WritePrivateProfileStringW(L"", L"", szLibFileName, (PWSTR)lpRefData);
-        return S_FALSE;
+        case IDYES:
+            if (GetOpenFileNameW(&((OPENFILENAMEW){.lStructSize = sizeof(OPENFILENAMEW),
+                                                   .hwndOwner = hWnd,
+                                                   .lpstrFilter = L"Application extensions (*.dll)\0*.dll*\0\0",
+                                                   .lpstrFile = szLibFileName,
+                                                   .Flags = OFN_FILEMUSTEXIST,
+                                                   .FlagsEx = OFN_EX_NOPLACESBAR,
+                                                   .nMaxFile = MAX_PATH})))
+                WritePrivateProfileStringW(L"", L"", szLibFileName, (PWSTR)lpRefData);
+            return S_FALSE;
+        }
     }
     return S_OK;
 }
