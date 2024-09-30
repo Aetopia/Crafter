@@ -49,7 +49,7 @@ void WinMainCRTStartup()
         if (szFileName[_] == '\\')
         {
             szFileName[_ = _ + 1] = '\0';
-            lstrcatW(szFileName, L".ini");
+            lstrcatW(szFileName, L"Crafter.ini");
             break;
         }
     GetPrivateProfileStringW(L"", L"", NULL, szLibFileName, MAX_PATH, szFileName);
