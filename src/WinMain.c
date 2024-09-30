@@ -31,7 +31,7 @@ HRESULT TaskDialogCallbackProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPara
                                                    .hwndOwner = hWnd,
                                                    .lpstrFilter = L"Application extensions (*.dll)\0*.dll*\0\0",
                                                    .lpstrFile = szLibFileName,
-                                                   .Flags = OFN_FILEMUSTEXIST|OFN_DONTADDTORECENT|OFN_HIDEREADONLY,
+                                                   .Flags = OFN_FILEMUSTEXIST | OFN_DONTADDTORECENT | OFN_HIDEREADONLY,
                                                    .FlagsEx = OFN_EX_NOPLACESBAR,
                                                    .nMaxFile = MAX_PATH})))
                 WritePrivateProfileStringW(L"", L"", szLibFileName, (PWSTR)lpRefData);
