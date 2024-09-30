@@ -5,7 +5,11 @@ A zero dependency lightweight injector for Minecraft: Bedrock Edition.
 
 - Reliably inject dynamic link libraries into Minecraft: Bedrock Edition.
 
-- Adds relevant permissions to make dynamic link libraries readable & executable within Minecraft: Bedrock Edition.
+- Adds relevant permissions to make a dynamic link library readable & executable within Minecraft: Bedrock Edition.
+
+- Caches the location of a selected dynamic link library.
+
+- Built & coded only against the Windows API.
 
 ## Building
 1. Install [MSYS2](https://www.msys2.org/) & [UPX](https://upx.github.io/) for optional compression.
